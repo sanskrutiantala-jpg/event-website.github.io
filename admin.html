@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin - Registrations</title>
+</head>
+<body>
+<h2>All Event Registrations</h2>
+
+<table border="1" cellpadding="8">
+<tr>
+<th>Event</th>
+<th>Name</th>
+<th>Email</th>
+<th>Mobile</th>
+<th>Date</th>
+</tr>
+
+<tbody id="data"></tbody>
+</table>
+
+<script>
+let data = JSON.parse(localStorage.getItem("registrations")) || [];
+let tbody = document.getElementById("data");
+
+data.forEach(r=>{
+  tbody.innerHTML += `
+  <tr>
+    <td>${r.event}</td>
+    <td>${r.name}</td>
+    <td>${r.email}</td>
+    <td>${r.mobile}</td>
+    <td>${r.date}</td>
+  </tr>`;
+});
+</script>
+
+</body>
+</html>
